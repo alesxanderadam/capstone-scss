@@ -1,0 +1,439 @@
+//vòng lặp đơn( extend .text-?xl)
+// dùng size cho cú pháp trên nhe anh;
+$size: 2, 3, 4, 5, 6, 7, 8, 9, 10;
+
+@each $size in $size {
+  .text-#{$size}xl {
+    font-size: $size * 10px;
+  }
+}
+
+// background color
+$bg-c1-dark: #000;
+$bg-c1-white: #fff;
+$bg-c1-primary: #189a46;
+$bg-c1-purple: rgb(147 107 232 / 5%);
+
+// color
+$text-c2-light: white;
+$text-c2-red: #f53626;
+$text-c2-black: black;
+$text-c2-primary: #189a46;
+$text-c2-grey: grey;
+// font-size
+$text-s: 12px;
+$text-m: 14px;
+$text-l: 16px;
+$text-xl: 18px;
+$text-2xl: 20px;
+$text-25xl: 25px;
+$text-3xl: 30px;
+$text-4xl: 40px;
+$text-5xl: 50px;
+$text-6xl: 60px;
+// font-weight
+$fw-3: 300;
+$fw-4: 400;
+$fw-6: 600;
+
+@mixin text($fz, $fw, $color) {
+  font-size: $fz;
+  font-weight: $fw;
+  color: $color;
+}
+
+@mixin bg-img($bg-rpeat, $bg-p, $bg-size) {
+  background-repeat: $bg-rpeat;
+  background-position: $bg-p;
+  background-size: $bg-size;
+}
+
+// Chỉ cần @include button(điền theo trình tự tham số truyền vào nhe anh )
+@mixin button(
+  $fz,
+  $fw,
+  $color,
+  $bg,
+  $pd,
+  $bd,
+  $rouned,
+  $color-hover,
+  $bg-hover
+) {
+  @include text($fz, $fw, $color);
+  background: $bg;
+  padding: $pd;
+  border: $bd;
+  border-radius: $rouned;
+  cursor: pointer;
+
+  &:hover {
+    color: $color-hover;
+    background: $bg-hover;
+  }
+}
+
+.a {
+  text-decoration: none;
+  color: $text-c2-black;
+  font-weight: $fw-6;
+  font-size: $text-xl;
+  border-bottom: 2px solid $bg-c1-primary;
+  transition: 0.3s ease-in-out;
+  margin-top: 15px;
+  display: inline-block;
+  text-transform: capitalize;
+
+  &:hover {
+    color: $text-c2-primary;
+  }
+}
+
+// @media screen and (min-width: 600px) and (max-width: 1100px) {
+//   .connect__us {
+//     display: none;
+//   }
+// }
+
+// Kết thúc khai báo
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: $bg-c1-white;
+}
+
+header {
+  .navbar {
+    position: fixed;
+    top: 20px;
+    left: 0%;
+    width: 100%;
+    z-index: 990;
+    border-radius: 2px;
+    box-shadow: 2px 2px 3px 2px;
+    outline: none;
+
+    // margin: 100px auto;
+    .navbar-brand {
+      @include text($text-3xl, $fw-6, $text-c2-primary);
+      height: 50px;
+      line-height: 40px;
+    }
+
+    .collapse {
+      ul.list {
+        li.item {
+          padding: 0 13px;
+          a {
+            font-size: $text-xl;
+            font-weight: $fw-6;
+            text-transform: capitalize;
+            transition: all 0.5s ease;
+            padding: 14px 0;
+            font-weight: 400;
+            position: relative;
+            &::before {
+              transition: all 0.5s;
+            }
+          }
+          a:hover {
+            text-decoration: underline;
+            color: $text-c2-primary;
+
+            &::before {
+              position: absolute;
+              content: "";
+              background: $bg-c1-primary;
+              width: 0px;
+              height: 3px;
+              bottom: 13px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+section.carosel {
+  .animation {
+    .banner {
+      position: relative;
+
+      img {
+        width: 100%;
+        height: 550px;
+        object-fit: cover;
+      }
+    }
+
+    .content {
+      position: absolute;
+      top: 40%;
+      left: 20%;
+
+      h1 {
+        @include text($text-6xl, $fw-6, $bg-c1-white);
+        line-height: 62px;
+      }
+
+      p {
+        @include text($text-2xl, $fw-4, $bg-c1-white);
+      }
+
+      a:nth-of-type(1) {
+        @include text($text-l, $fw-4, $text-c2-primary);
+        background-color: $bg-c1-white;
+        padding: 10px 30px;
+      }
+
+      a:nth-of-type(2) {
+        @include text($text-l, $fw-4, $text-c2-light);
+        background-color: transparent;
+        border: 2px solid $bg-c1-white;
+        padding: 10px 30px;
+        transition: all 0.5s;
+      }
+
+      a:hover {
+        background-color: $bg-c1-white;
+        color: $bg-c1-primary;
+      }
+    }
+  }
+}
+
+.service {
+  padding-top: 120px;
+
+  .container {
+    .content {
+      text-align: center;
+      padding-bottom: 100px;
+
+      h1:nth-of-type(1) {
+        @include text($text-3xl, $fw-3, $text-c2-red);
+      }
+
+      h1:nth-of-type(2) {
+        @include text($text-4xl, $fw-6, $text-c2-black);
+      }
+
+      p {
+        @include text($text-xl, $fw-4, $text-c2-grey);
+      }
+
+      a {
+        @extend .a;
+      }
+    }
+  }
+}
+
+section.service__content {
+  background-color: $bg-c1-purple;
+  padding: 10px 20px;
+
+  .service__item {
+    padding-top: 50px;
+
+    .item {
+      .area-box {
+        padding: 40px 30px;
+        transition: all 0.5s ease 0s;
+        border-radius: 10px;
+        background-color: $bg-c1-white;
+        position: relative;
+        margin-bottom: 30px;
+
+        i {
+          color: $bg-c1-primary;
+          font-size: $text-3xl;
+          padding-bottom: 20px;
+        }
+
+        &:hover {
+          background-color: $bg-c1-purple;
+        }
+
+        h1 {
+          @include text($text-3xl, $fw-6, $text-c2-black);
+        }
+
+        a {
+          @extend .a;
+        }
+      }
+    }
+  }
+}
+
+.connect__us {
+  padding: 80px 20px;
+
+  .connect__pic {
+    width: 50%;
+    margin-left: 40px;
+
+    img {
+      border-radius: 10px;
+      width: 100%;
+    }
+  }
+
+  .connect__title {
+    width: 50%;
+    margin-top: 6%;
+    margin-left: 40px;
+
+    h1:nth-of-type(1) {
+      @include text($text-2xl, $fw-4, $text-c2-red);
+    }
+
+    h1:nth-of-type(2) {
+      @include text($text-5xl, $fw-6, $text-c2-black);
+    }
+
+    p {
+      color: $text-c2-grey;
+    }
+
+    .content-title {
+      .item {
+        padding: 15px 0;
+        align-items: center;
+
+        i {
+          font-size: $text-s;
+          color: $text-c2-primary;
+          padding: 0 20px;
+        }
+
+        h3 {
+          @include text($text-l, $fw-6, $text-c2-black);
+        }
+      }
+    }
+  }
+}
+
+section.about-us {
+  text-align: center;
+  background-color: $bg-c1-primary;
+
+  .stats_info {
+    p {
+      @include text($text-5xl, $fw-6, $text-c2-light);
+    }
+
+    h1 {
+      @include text($text-2xl, $fw-6, $text-c2-light);
+    }
+  }
+}
+// Packapage
+section.Packages {
+  background-color: $bg-c1-purple;
+  .title {
+    padding: 50px 0px;
+    text-align: center;
+    h1 {
+      @include text($text-3xl, $fw-6, $text-c2-red);
+    }
+    h3 {
+      @include text($text-4xl, $fw-6, $text-c2-black);
+    }
+  }
+  .content {
+    .item {
+      background-color: #fff;
+      text-align: center;
+      h1 {
+        padding-top: 30px;
+      }
+      h1:nth-of-type(1) {
+        @include text($text-25xl, $fw-6, $text-c2-black);
+      }
+      h1:nth-of-type(2) {
+        font-size: 20px;
+        color: gray;
+
+        span {
+          sup {
+            color: $text-c2-primary;
+            font-size: 30px;
+          }
+          color: $text-c2-primary;
+          font-size: 40px;
+          font-weight: bold;
+        }
+      }
+      p {
+        @include text($text-xl, $fw-4, $text-c2-grey);
+      }
+      button.btn {
+        color: #fff;
+        background-color: $bg-c1-primary;
+        padding: 15px 40px;
+        transition: all 0.5s;
+        &:hover {
+          color: #000;
+          background-color: white;
+          border: 2px solid $bg-c1-primary;
+        }
+      }
+    }
+    .item-2 {
+      background-color: #fff;
+      text-align: center;
+      transform: scale(1.1);
+      .sale {
+        display: inline-block;
+        width: 100%;
+        padding: 20px 20px;
+        border-radius: 10px;
+        background-color: $bg-c1-primary;
+        margin-bottom: 30px;
+        .bg-sale {
+          h3 {
+            background-color: #fff;
+            display: inline-block;
+            border-radius: 10px;
+            padding: 10px 40px;
+            @include text($text-l, $fw-6, $text-c2-primary);
+          }
+        }
+        h1:nth-of-type(1) {
+          padding-top: 10px;
+          @include text($text-2xl, $fw-4, $text-c2-light);
+        }
+        h1:nth-of-type(2) {
+          font-size: 20px;
+          color: white;
+
+          span {
+            sup {
+              color: $text-c2-light;
+              font-size: 30px;
+            }
+            color: $text-c2-light;
+            font-size: 40px;
+            font-weight: bold;
+          }
+        }
+      }
+      button.btn {
+        color: #fff;
+        background-color: $bg-c1-primary;
+        padding: 15px 40px;
+        transition: all 0.5s;
+        &:hover {
+          color: #000;
+          background-color: white;
+          border: 2px solid $bg-c1-primary;
+        }
+      }
+    }
+  }
+}
