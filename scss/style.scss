@@ -874,3 +874,101 @@ footer.footer-28 {
     }
   }
 }
+
+// Services
+.content-photo-info {
+  .content-photo-grids {
+    border-bottom: 1px solid #f0f3f0;
+    margin-top: 80px;
+    padding-bottom: 80px;
+    align-items: center;
+    .photo-6-inf-left {
+      padding-right: 30px;
+      a:hover {
+        display: block;
+        overflow: hidden;
+        img {
+          transform: scale(1.1);
+          transition: all 0.5s ease-in-out;
+        }
+      }
+    }
+    .photo-6-inf-right {
+      h6 {
+        text-transform: uppercase;
+        line-height: 2em;
+        letter-spacing: 1px;
+        @include text($text-xl, $fw-4, $text-c2-red);
+      }
+      h3 {
+        @include text($text-4xl, $fw-6, $text-c2-black);
+        text-transform: capitalize;
+      }
+      p {
+        @include text($text-2xl, $fw-4, $text-c2-grey);
+      }
+      a {
+        text-decoration: none;
+        @include text($text-xl, $fw-6, $text-c2-black);
+        transition: all 0.5s;
+        border-bottom: 2px solid $text-c2-primary;
+        &:hover {
+          color: $text-c2-primary;
+          font-weight: $fw-6;
+        }
+      }
+    }
+  }
+}
+
+// Gallery
+.header-section {
+  h6 {
+    text-transform: uppercase;
+    line-height: 2em;
+    letter-spacing: 1px;
+    @include text($text-xl, $fw-4, $text-c2-red);
+  }
+  h3 {
+    @include text($text-4xl, $fw-6, $text-c2-black);
+    text-transform: capitalize;
+  }
+}
+.galler-top {
+  .protfolio-item {
+    a {
+      display: block;
+      figure {
+        position: relative;
+        margin: 0px;
+        overflow: hidden;
+        &:hover {
+          &::before {
+            animation: coverImg 0.75s;
+          }
+        }
+        &::before {
+          position: absolute;
+          top: 0;
+          left: -100%;
+          z-index: 2;
+          display: block;
+          content: "";
+          width: 50%;
+          height: 100%;
+          background: linear-gradient(
+            to right,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 0.3) 100%
+          );
+          transform: skewX(-25deg);
+        }
+        @keyframes coverImg {
+          100% {
+            left: 100%;
+          }
+        }
+      }
+    }
+  }
+}
