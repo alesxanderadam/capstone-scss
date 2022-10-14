@@ -88,7 +88,9 @@ $fw-6: 600;
     color: $text-c2-primary;
   }
 }
-
+.over-box {
+  padding: 20px 40px;
+}
 // @media screen and (min-width: 600px) and (max-width: 1100px) {
 //   .connect__us {
 //     display: none;
@@ -131,9 +133,19 @@ header {
       height: 50px;
       line-height: 40px;
     }
+    button.navbar-toggler {
+      border: 2px solid sandybrown;
+      background-color: $bg-c1-primary;
+      span.fa {
+        color: #fff;
+        line-height: 34px;
+        border-radius: 5px;
+      }
+    }
 
     .collapse {
       ul.list {
+        text-align: center;
         li.item {
           padding: 0 13px;
           a {
@@ -339,10 +351,12 @@ section.about-us {
 }
 // Packapage
 section.Packages {
+  padding: 100px 50px;
   background-color: $bg-c1-purple;
   .title {
-    padding: 50px 0px;
+    padding: 40px 0px;
     text-align: center;
+    margin-bottom: 80px;
     h1 {
       @include text($text-3xl, $fw-6, $text-c2-red);
     }
@@ -352,93 +366,99 @@ section.Packages {
   }
 
   .content {
+    background-color: #fff;
     .item {
-      padding-bottom: 20px;
-      background-color: #fff;
+      margin-bottom: 50px;
       text-align: center;
-      h1 {
-        padding-top: 30px;
-      }
-      h1:nth-of-type(1) {
-        @include text($text-25xl, $fw-6, $text-c2-black);
-      }
-      h1:nth-of-type(2) {
-        font-size: 20px;
-        color: gray;
-
-        span {
-          sup {
-            color: $text-c2-primary;
-            font-size: 30px;
-          }
-          color: $text-c2-primary;
-          font-size: 40px;
-          font-weight: bold;
-        }
-      }
-      p {
-        @include text($text-xl, $fw-4, $text-c2-grey);
-      }
-      button.btn {
-        color: #fff;
-        background-color: $bg-c1-primary;
-        padding: 15px 40px;
-        transition: all 0.5s;
-        &:hover {
-          color: #000;
-          background-color: white;
-          border: 2px solid $bg-c1-primary;
-        }
-      }
-    }
-    .item-2 {
-      background-color: #fff;
-      text-align: center;
-      transform: scale(1.1);
-      .sale {
-        display: inline-block;
-        width: 100%;
-        padding: 20px 20px;
-        border-radius: 10px;
-        background-color: $bg-c1-primary;
-        margin-bottom: 30px;
-        .bg-sale {
-          h3 {
-            background-color: #fff;
-            display: inline-block;
-            border-radius: 10px;
-            padding: 10px 40px;
-            @include text($text-l, $fw-6, $text-c2-primary);
-          }
+      .over-box {
+        h1 {
+          padding-top: 30px;
         }
         h1:nth-of-type(1) {
-          padding-top: 10px;
-          @include text($text-2xl, $fw-4, $text-c2-light);
+          @include text($text-25xl, $fw-6, $text-c2-black);
         }
         h1:nth-of-type(2) {
           font-size: 20px;
-          color: white;
+          color: gray;
 
           span {
             sup {
-              color: $text-c2-light;
+              color: $text-c2-primary;
               font-size: 30px;
             }
-            color: $text-c2-light;
+            color: $text-c2-primary;
             font-size: 40px;
             font-weight: bold;
           }
         }
+        p {
+          @include text($text-xl, $fw-4, $text-c2-grey);
+        }
+        button.btn {
+          color: #fff;
+          background-color: $bg-c1-primary;
+          padding: 15px 40px;
+          transition: all 0.5s;
+          &:hover {
+            color: #000;
+            background-color: white;
+            border: 2px solid $bg-c1-primary;
+          }
+        }
       }
-      button.btn {
-        color: #fff;
-        background-color: $bg-c1-primary;
-        padding: 15px 40px;
-        transition: all 0.5s;
-        &:hover {
-          color: #000;
-          background-color: white;
-          border: 2px solid $bg-c1-primary;
+    }
+    .item-2 {
+      margin-bottom: 50px;
+
+      text-align: center;
+      transform: scale(1.3);
+      .over-box {
+        margin: 0 10px;
+        .sale {
+          display: inline-block;
+          width: 100%;
+          padding: 20px 20px;
+          border-radius: 10px;
+          background-color: $bg-c1-primary;
+          margin-bottom: 30px;
+          .bg-sale {
+            h3 {
+              background-color: #fff;
+              display: inline-block;
+              border-radius: 10px;
+              padding: 10px 40px;
+              @include text($text-l, $fw-6, $text-c2-primary);
+            }
+          }
+          h1:nth-of-type(1) {
+            padding-top: 10px;
+            @include text($text-2xl, $fw-4, $text-c2-light);
+          }
+          h1:nth-of-type(2) {
+            font-size: 20px;
+            color: white;
+
+            span {
+              sup {
+                color: $text-c2-light;
+                font-size: 30px;
+              }
+              color: $text-c2-light;
+              font-size: 40px;
+              font-weight: bold;
+            }
+          }
+        }
+        button.btn {
+          color: #fff;
+          background-color: $bg-c1-primary;
+          padding: 15px 40px;
+          transition: all 0.5s;
+          &:hover {
+            color: #000;
+            background-color: white;
+            border: 2px solid $bg-c1-primary;
+          }
         }
       }
     }
@@ -615,7 +635,43 @@ section.w3l-clients {
     }
   }
 }
-
+// Home bottom
+section.w3l-bottom {
+  .subscribe {
+    max-width: 650px;
+    .header-section {
+      h3 {
+        font-size: 40px;
+        font-weight: 600;
+        line-height: 48px;
+        text-transform: capitalize;
+      }
+    }
+    .subscribe-wthree-field {
+      input {
+        margin-right: 10px;
+        font-size: 16px;
+        border-radius: 10px;
+        padding: 0px 20px;
+        flex-basis: 70%;
+        background: #fff;
+        height: 60px;
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+      button {
+        flex-basis: 27%;
+        background-color: $bg-c1-primary;
+        transition: all 0.5s linear;
+        &:hover {
+          color: #000;
+          background-color: transparent;
+          border: 2px solid $bg-c1-primary;
+        }
+      }
+    }
+  }
+}
 // SERVICE PAGE
 section.w3l-about-breadcrumb {
   margin-top: 90px;
